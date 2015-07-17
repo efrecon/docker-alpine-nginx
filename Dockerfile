@@ -2,7 +2,7 @@ FROM alpine:3.1
 
 MAINTAINER John Allen <john.allen@connexiolabs.com>
 
-ENV NGINX_VERSION nginx-1.7.11
+ENV NGINX_VERSION nginx-1.9.3
 
 RUN apk --update add openssl-dev pcre-dev zlib-dev wget build-base && \
     mkdir -p /tmp/src && \
@@ -13,6 +13,7 @@ RUN apk --update add openssl-dev pcre-dev zlib-dev wget build-base && \
     ./configure \
         --with-http_ssl_module \
         --with-http_gzip_static_module \
+        --with-http_realip_module \
         --prefix=/etc/nginx \
         --http-log-path=/var/log/nginx/access.log \
         --error-log-path=/var/log/nginx/error.log \
@@ -24,12 +25,8 @@ RUN apk --update add openssl-dev pcre-dev zlib-dev wget build-base && \
     rm -rf /var/cache/apk/*
 
 # forward request and error logs to docker log collector
-RUN ln -sf /dev/stdout /var/log/nginx/access.log
-RUN ln -sf /dev/stderr /var/log/nginx/error.log
-
-VOLUME ["/var/log/nginx"]
-
-WORKDIR /etc/nginx
+RUN ln -sf /dev/stdout /var/log/nginx/access.log && \
+    ln -sf /dev/stderr /var/log/nginx/error.log
 
 EXPOSE 80 443
 
