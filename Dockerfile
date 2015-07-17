@@ -1,6 +1,7 @@
 FROM alpine:3.1
 
-MAINTAINER John Allen <john.allen@connexiolabs.com>
+# ORIGINAL MAINTAINER John Allen <john.allen@connexiolabs.com>
+MAINTAINER Stephen Packer <steve@stevepacker.com>
 
 ENV NGINX_VERSION nginx-1.9.3
 
