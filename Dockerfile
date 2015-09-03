@@ -1,4 +1,4 @@
-FROM alpine:3.1
+FROM alpine:latest
 
 # ORIGINAL MAINTAINER John Allen <john.allen@connexiolabs.com>
 MAINTAINER Stephen Packer <steve@stevepacker.com>
