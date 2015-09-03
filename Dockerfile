@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 # ORIGINAL MAINTAINER John Allen <john.allen@connexiolabs.com>
-MAINTAINER Stephen Packer <steve@stevepacker.com>
+MAINTAINER Emmanuel Frecon <efrecon@gmail.com>
 
 ENV NGINX_VERSION nginx-1.9.4
 
