@@ -3,7 +3,7 @@ FROM alpine:latest
 # ORIGINAL MAINTAINER John Allen <john.allen@connexiolabs.com>
 MAINTAINER Stephen Packer <steve@stevepacker.com>
 
-ENV NGINX_VERSION nginx-1.9.3
+ENV NGINX_VERSION nginx-1.9.4
 
 RUN apk --update add openssl-dev pcre-dev zlib-dev wget build-base && \
     mkdir -p /tmp/src && \
