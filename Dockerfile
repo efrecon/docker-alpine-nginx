@@ -28,6 +28,12 @@ RUN apk --update add openssl-dev pcre-dev zlib-dev wget build-base && \
 # forward request and error logs to docker log collector
 RUN ln -sf /dev/stdout /var/log/nginx/access.log && \
     ln -sf /dev/stderr /var/log/nginx/error.log
+    
+# Arrange to expose the logs if necessary
+VOLUME ["/var/log/nginx"]
+
+# Arrange for access configuration file
+WORKDIR /etc/nginx
 
 EXPOSE 80 443
 
